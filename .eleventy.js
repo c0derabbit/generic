@@ -2,6 +2,7 @@ var hljs = require('highlight.js')
 
 module.exports = function(config) {
   config.addPassthroughCopy({ public: './' })
+  config.addPassthroughCopy('./assets/')
   config.addPassthroughCopy('./css/')
   config.addNunjucksFilter('date', require('./nunjucks-dayjs-filter'))
 
@@ -21,7 +22,10 @@ module.exports = function(config) {
     typographer: true,
     highlight,
   }
-  const markdownLib = markdownIt(options).use(require('markdown-it-footnote'))
+  const markdownLib = markdownIt(options)
+    .use(require('markdown-it-attrs'))
+    .use(require('markdown-it-bracketed-spans'))
+    .use(require('markdown-it-footnote'))
 
   config.setLibrary('md', markdownLib)
 

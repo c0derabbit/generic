@@ -2,8 +2,8 @@
   <a
     href="{{ url| url }}"
     class="
-      text-gray-500
-      hover:text-black transition-colors duration-500
+      mx-4 text-teal-800
+      hover:text-teal-600 transition-colors duration-500
       {% if page.url === url %}
         font-semibold
       {% endif %}
@@ -13,13 +13,24 @@
   </a>
 {% endmacro %}
 
-<header>
+<header class="flex justify-between items-center">
   <h1>
-    <a href="{{ '/' | url }}">{{ metadata.title }}</a>
+    <a href="{{ '/' | url }}" class="flex items-center">
+      <img src="/assets/logo.svg" alt="" class="inline mr-1" />
+      {{ metadata.title }}
+    </a>
   </h1>
   <nav>
     {% for link in navigation %}
       {{ navlink(link.title, link.url) }}
     {% endfor %}
   </nav>
+  <button
+    class="
+      py-1 px-4 text-white bg-teal-700 rounded
+      hover:bg-teal-600 transition-colors duration-500
+    "
+  >
+    Click me
+  </button>
 </header>

@@ -8,17 +8,16 @@
     <link rel="stylesheet" href="/css/styles.css">
   </head>
   <body>
-    <div class="max-w-3xl mx-auto p-6 lg:p-12">
+    <div class="max-w-6xl mx-auto p-4">
       {% include "header.njk" %}
 
-      <main>
+      <main class="mt-6 md:mt-16 grid grid-cols-4 md:grid-cols-8 lg:grid-cols-12 gap-10">
         {{ content | safe }}
       </main>
 
-      <footer></footer>
-
-      <!-- Current page: {{ page.url | url }} -->
+      <!-- {% include "footer.njk" %} -->
     </div>
+
     <!-- Fathom - simple website analytics - https://github.com/usefathom/fathom -->
     <script>
       (function(f, a, t, h, o, m){

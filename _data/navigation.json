@@ -1,10 +1,18 @@
 [
   {
     "title": "Features",
-    "url": "/features"
+    "url": "/"
   },
   {
     "title": "Pricing",
-    "url": "/pricing"
+    "url": "/pricing/"
+  },
+  {
+    "title": "Support",
+    "url": "#"
+  },
+  {
+    "title": "Community",
+    "url": "#"
   }
 ]
