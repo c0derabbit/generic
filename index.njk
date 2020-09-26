@@ -2,25 +2,46 @@
 layout: layouts/base.njk
 ---
 
-<div class="col-span-4 lg:col-span-6">
-  <h1 class="text-5xl leading-none font-medium">
-    Your dogs should have the space they deserve
-  </h1>
+{% import "macros/components.njk" as components %}
 
-  <p class="text-xl font-light py-4">
-    No self-respecting pet should be satisfied with a barely-followed instagram account. In just <span class="font-medium">ten minutes</span>, you can help them shine. 
-  </p>
+{{
+  components.hero({
+    title: 'Future you should live a life you deserve',
+    text: 'Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat. Nam libero tempore, cum soluta nobis est eligendi.',
+    cta: 'Get started',
+    url: '#',
+    imgSrc: 'https://source.unsplash.com/600x400/?travel'
+  })
+}}
 
-  <a
-    href="#"
-    class="inline-block mt-8 text-white px-6 py-3 bg-teal-700 hover:bg-teal-600 transition-color duration-500 no-underline hover:no-underline rounded font-bold text-lg"
-  >
-    Get started
-  </a>
-</div>
-
-<img
-  src="https://source.unsplash.com/600x400/?dog"
-  alt="one happy doggo"
-  class="col-span-4 lg:col-span-6 rounded"
-/>
+{{
+  components.features({
+    title: 'Some fancy title goes here',
+    items: [
+      {
+        title: 'Dalmatians dancing',
+        text: 'Totam rem aperiam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.',
+        cta: 'Click this',
+        url: '#'
+      },
+      {
+        title: 'Labradors sleeping',
+        text: 'Totam rem aperiam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.',
+        cta: 'Maybe this',
+        url: '#'
+      },
+      {
+        title: 'German Shepherds',
+        text: 'Totam rem aperiam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.',
+        cta: 'Hello button',
+        url: '#'
+      },
+      {
+        title: 'The best: whippets',
+        text: 'Totam rem aperiam. Et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.',
+        cta: 'Best button',
+        url: '#'
+      }
+    ]
+  })
+}}

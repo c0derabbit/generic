@@ -9,14 +9,20 @@ body {
   letter-spacing: .2px;
 }
 
-article a,
-main a {
-  @apply underline;
+section {
+  @apply grid grid-cols-4;
 }
 
-article a:hover,
-main a:hover {
-  @apply underline;
+@media (min-width: 768px) {
+  section {
+    @apply grid-cols-8;
+  }
+}
+
+@media (min-width: 1024px) {
+  section {
+    @apply grid-cols-12 gap-10;
+  }
 }
 
 pre,
@@ -30,6 +36,32 @@ pre {
 
 *:not(pre) code {
   padding: 2px;
+}
+
+.btn {
+  @apply inline-block py-1 px-4 text-white bg-indigo-700 rounded transition-colors duration-500;
+}
+
+.btn:hover,
+.btn:focus {
+  @apply bg-indigo-600 text-white;
+}
+
+.btn-lg {
+  @apply py-2 px-8;
+}
+
+.btn-secondary {
+  @apply bg-white text-indigo-700 border border-indigo-700 transition-colors duration-500;
+}
+
+.link {
+  @apply text-indigo-800 transition-colors duration-500;
+}
+
+.link:hover,
+.link:focus {
+  @apply text-indigo-600;
 }
 
 .footnotes-sep {
