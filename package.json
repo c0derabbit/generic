@@ -1,0 +1,27 @@
+{
+  "name": "eszter.space",
+  "private": true,
+  "description": "Down the rabbithole: a frontend blog",
+  "version": "1.0.0",
+  "author": "c0derabbit <ekov@pm.me>",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.11.0",
+    "@fullhuman/postcss-purgecss": "^2.3.0",
+    "autoprefixer": "^9.8.6",
+    "cssnano": "^4.1.10",
+    "dayjs": "^1.8.36",
+    "highlight.js": "^10.2.0",
+    "markdown-it": "^11.0.0",
+    "markdown-it-footnote": "^3.0.2",
+    "postcss-cli": "^7.1.1",
+    "postcss-import": "^12.0.1",
+    "tailwindcss": "^1.7.3"
+  },
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint src",
+    "build": "yarn tailwind && postcss css/styles.css --replace && eleventy --quiet",
+    "tailwind": "tailwindcss build css/tailwind.css -o css/styles.css -c tailwind.config.js",
+    "dev": "yarn tailwind && eleventy --quiet --serve"
+  }
+}

@@ -1,0 +1,15 @@
+---
+layout: layouts/base.njk
+---
+{% macro link(data) %}
+  <a href={{ data.url | url }}>
+    {{ data.title }}
+  </a>
+{% endmacro %}
+
+<article>
+  <h1 class="text-2xl mb-6 lg:text-4xl">{{ title }}</h1>
+  {{ content | safe }}
+
+  {{ link({ url: '#', title: 'foo' }) }}
+</article>

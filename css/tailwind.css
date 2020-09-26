@@ -1,0 +1,64 @@
+@import './highlight.css';
+@import './littlefoot.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  letter-spacing: .2px;
+}
+
+h1 {
+  @apply font-semibold;
+}
+
+h2,
+h3,
+h4,
+h5 {
+  @apply font-semibold mt-6 mb-3;
+}
+
+h2 {
+  @apply text-2xl;
+}
+
+h3 {
+  @apply text-xl;
+}
+
+h4 {
+  @apply text-lg;
+}
+
+p {
+  @apply my-3;
+}
+
+article a,
+main a {
+  @apply underline;
+}
+
+article a:hover,
+main a:hover {
+  @apply underline;
+}
+
+pre,
+code {
+  @apply bg-gray-100 text-sm;
+}
+
+pre {
+  @apply p-2;
+}
+
+*:not(pre) code {
+  padding: 2px;
+}
+
+.footnotes-sep {
+  display: none;
+}
