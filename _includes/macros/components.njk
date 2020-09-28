@@ -3,12 +3,12 @@
     <div class="col-span-6">
       <h1 class="text-4xl mb-8 leading-none">{{ data.title }}</h1>
       <p class="text-lg">{{ data.text }}</p>
-      <a class="btn btn-lg mt-6" href="{{ data.url }}">
-        {{ data.cta }}
+      <a class="btn btn-lg mt-6" href="{{ data.ctaUrl }}">
+        {{ data.ctaText }}
       </a>
     </div>
 
-    <img class="col-span-6" src="{{ data.imgSrc }}" />
+    <img class="col-span-6" src="{{ data.image.url }}" />
   </section>
 {% endmacro %}
 
@@ -24,8 +24,8 @@
           {{ item.title }}
         </h3>
         <p class="mb-4">{{ item.text }}</p>
-        <a class="btn btn-secondary" href="{{ item.url }}">
-          {{ item.cta }}
+        <a class="btn btn-secondary" href="{{ item.ctaUrl }}">
+          {{ item.ctaText }}
         </a>
       </div>
     {% endfor %}

@@ -1,3 +1,4 @@
+require('dotenv').config()
 var hljs = require('highlight.js')
 
 module.exports = function(config) {
