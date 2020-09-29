@@ -24,8 +24,28 @@ module.exports = async () => {
               ... on HeroRecord {
                 title
                 text
-                ctaText
-                ctaUrl
+                cta {
+                  ... on PageRecord {
+                    text: name
+                    url
+                  }
+                  ... on LinkRecord {
+                    text
+                    url
+                    newTab
+                  }
+                }
+                secondaryCta {
+                  ... on PageRecord {
+                    text: name
+                    url
+                  }
+                  ... on LinkRecord {
+                    text
+                    url
+                    newTab
+                  }
+                }
                 image {
                   url
                 }

@@ -1,12 +1,28 @@
+{% macro link(link, secondary) %}
+  <a
+    class="btn btn-lg mr-2 {% if secondary %} btn-secondary{% endif %}"
+    href="{{ link.url }}"
+    {% if link.newTab %}
+      target="_blank"
+      rel="noopener noreferrer"
+    {% endif %}
+  >
+    {{ link.text }}
+  </a>
+{% endmacro %}
+
 {% macro hero(data) %}
   <section>
     <div class="container">
-      <div class="col-span-6">
-        <h1 class="text-4xl mb-8 leading-none">{{ data.title }}</h1>
-        <p class="text-lg">{{ data.text }}</p>
-        <a class="btn btn-lg mt-6" href="{{ data.ctaUrl }}">
-          {{ data.ctaText }}
-        </a>
+      <div class="col-span-6 md:mt-8">
+        <h1 class="text-5xl mb-8 leading-none">{{ data.title }}</h1>
+        <p class="text-xl font-light">{{ data.text }}</p>
+        <div class="mt-10">
+          {{ link(data.cta) }}
+          {% if data.secondaryCta %}
+            {{ link(data.secondaryCta, true) }}
+          {% endif %}
+        </div>
       </div>
 
       <img class="col-span-6" src="{{ data.image.url }}" />
@@ -26,8 +42,8 @@
           {{ item.title }}
         </h3>
         <p class="mb-4">{{ item.text }}</p>
-        <a class="btn btn-secondary" href="{{ item.ctaUrl }}">
-          {{ item.ctaText }}
+        <a class="btn btn-secondary" href="{{ item.cta.url }}">
+          {{ item.cta.text }}
         </a>
       </div>
     {% endfor %}
