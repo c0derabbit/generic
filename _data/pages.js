@@ -22,6 +22,7 @@ module.exports = async () => {
             }
             sections {
               ... on HeroRecord {
+                _modelApiKey
                 title
                 text
                 cta {
@@ -49,11 +50,29 @@ module.exports = async () => {
                 image {
                   url
                 }
-                _modelApiKey
               }
-              ... on TestRecord {
-                title
+              ... on FeatureListRecord {
                 _modelApiKey
+                title
+                subtitle
+                features {
+                  title
+                  description
+                  illustration {
+                    url
+                  }
+                  link {
+                    ... on LinkRecord {
+                      text
+                      url
+                      newTab
+                    }
+                    ... on PageRecord {
+                      text: name
+                      url
+                    }
+                  }
+                }
               }
             }
           }

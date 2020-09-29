@@ -11,6 +11,16 @@
   </a>
 {% endmacro %}
 
+{% macro linkOpeningTag(link) %}
+  <a
+    href="{{ link.url }}"
+    {% if link.newTab %}
+      target="_blank"
+      rel="noopener noreferrer"
+    {% endif %}
+  >
+{% endmacro %}
+
 {% macro hero(data) %}
   <section>
     <div class="container">
@@ -30,22 +40,30 @@
   </section>
 {% endmacro %}
 
-{% macro features(data) %}
+{% macro feature_list(data) %}
   <section class="bg-gray-100">
-    <h2 class="text-3xl col-span-12">
-      {{ data.title }}
-      <div class="bg-indigo-100"></div>
-    </h2>
-    {% for item in data.items %}
-      <div class="col-span-6">
-        <h3 class="mb-4 text-xl font-semibold">
-          {{ item.title }}
+    <div class="container py-6 md:py-12 lg:py-24">
+      <div class="col-span-12 text-center">
+        <h2 class="text-3xl">
+          {{ data.title }}
+        </h2>
+        <h3 class="text-2xl font-light">
+          {{ data.subtitle }}
         </h3>
-        <p class="mb-4">{{ item.text }}</p>
-        <a class="btn btn-secondary" href="{{ item.cta.url }}">
-          {{ item.cta.text }}
-        </a>
       </div>
-    {% endfor %}
+      {% for feature in data.features %}
+        <div class="col-span-12 md:col-span-4 lg:col-span-{% if data.features.length % 3 == 0 %}4{% else %}6{% endif %}">
+          {% if feature.link %} {{ linkOpeningTag(feature.link) }} {% endif %}
+          {% if feature.illustration %}
+            <img src="{{ feature.illustration.url }}" alt="" class="h-16 mb-4" />
+          {% endif %}
+          <h3 class="mb-4 text-xl font-semibold">
+            {{ feature.title }}
+          </h3>
+          <p class="mb-4">{{ feature.description }}</p>
+          {% if feature.link %} </a> {% endif %}
+        </div>
+      {% endfor %}
+    </div>
   </section>
 {% endmacro %}
