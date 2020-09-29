@@ -9,18 +9,18 @@ body {
   letter-spacing: .2px;
 }
 
-section {
-  @apply grid grid-cols-4;
+.container {
+  @apply grid grid-cols-4 p-4 mx-auto max-w-6xl;
 }
 
 @media (min-width: 768px) {
-  section {
+  .container {
     @apply grid-cols-8;
   }
 }
 
 @media (min-width: 1024px) {
-  section {
+  .container {
     @apply grid-cols-12 gap-10;
   }
 }

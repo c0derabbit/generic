@@ -1,14 +1,16 @@
 {% macro hero(data) %}
   <section>
-    <div class="col-span-6">
-      <h1 class="text-4xl mb-8 leading-none">{{ data.title }}</h1>
-      <p class="text-lg">{{ data.text }}</p>
-      <a class="btn btn-lg mt-6" href="{{ data.ctaUrl }}">
-        {{ data.ctaText }}
-      </a>
-    </div>
+    <div class="container">
+      <div class="col-span-6">
+        <h1 class="text-4xl mb-8 leading-none">{{ data.title }}</h1>
+        <p class="text-lg">{{ data.text }}</p>
+        <a class="btn btn-lg mt-6" href="{{ data.ctaUrl }}">
+          {{ data.ctaText }}
+        </a>
+      </div>
 
-    <img class="col-span-6" src="{{ data.image.url }}" />
+      <img class="col-span-6" src="{{ data.image.url }}" />
+    </div>
   </section>
 {% endmacro %}
 

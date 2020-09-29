@@ -42,7 +42,6 @@ module.exports = async () => {
     });
 
     const { data } = await res.json()
-    console.log(data.pages)
 
     return data.pages
   } catch (error) {

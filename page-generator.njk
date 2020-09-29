@@ -10,9 +10,8 @@ permalink: "{{ p.url }}/index.html"
 {% import "macros/components.njk" as components %}
 
 {% for section in p.sections %}
-  {% if section._modelApiKey == 'hero' %}
-    {{ components.hero(section) }}
-  {% else %}
-    {{ section.title }}
+  {% set component = components[section._modelApiKey] %}
+  {% if component %}
+    {{ component(section) }}
   {% endif %}
 {% endfor %}
