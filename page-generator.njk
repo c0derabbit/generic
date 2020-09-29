@@ -1,0 +1,17 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: pages
+  size: 1
+  alias: p 
+permalink: "{{ p.url }}/index.html"
+---
+
+{% import "macros/components.njk" as components %}
+
+{% for section in p.sections %}
+  {% set component = components[section._modelApiKey] %}
+  {% if component %}
+    {{ component(section) }}
+  {% endif %}
+{% endfor %}

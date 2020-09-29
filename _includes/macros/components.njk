@@ -1,0 +1,35 @@
+{% macro hero(data) %}
+  <section>
+    <div class="container">
+      <div class="col-span-6">
+        <h1 class="text-4xl mb-8 leading-none">{{ data.title }}</h1>
+        <p class="text-lg">{{ data.text }}</p>
+        <a class="btn btn-lg mt-6" href="{{ data.ctaUrl }}">
+          {{ data.ctaText }}
+        </a>
+      </div>
+
+      <img class="col-span-6" src="{{ data.image.url }}" />
+    </div>
+  </section>
+{% endmacro %}
+
+{% macro features(data) %}
+  <section class="bg-gray-100">
+    <h2 class="text-3xl col-span-12">
+      {{ data.title }}
+      <div class="bg-indigo-100"></div>
+    </h2>
+    {% for item in data.items %}
+      <div class="col-span-6">
+        <h3 class="mb-4 text-xl font-semibold">
+          {{ item.title }}
+        </h3>
+        <p class="mb-4">{{ item.text }}</p>
+        <a class="btn btn-secondary" href="{{ item.ctaUrl }}">
+          {{ item.ctaText }}
+        </a>
+      </div>
+    {% endfor %}
+  </section>
+{% endmacro %}

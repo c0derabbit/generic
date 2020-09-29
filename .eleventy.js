@@ -1,3 +1,4 @@
+require('dotenv').config()
 var hljs = require('highlight.js')
 
 module.exports = function(config) {
@@ -23,8 +24,6 @@ module.exports = function(config) {
     highlight,
   }
   const markdownLib = markdownIt(options)
-    .use(require('markdown-it-attrs'))
-    .use(require('markdown-it-bracketed-spans'))
     .use(require('markdown-it-footnote'))
 
   config.setLibrary('md', markdownLib)
