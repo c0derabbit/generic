@@ -14,7 +14,31 @@ module.exports = async () => {
       },
       body: JSON.stringify({
         query: `{
+          _site {
+            favicon {
+              url
+            }
+            seo: globalSeo {
+              siteName
+              titleSuffix
+              twitterAccount
+              fallbackSeo {
+                description
+                title
+                twitterCard
+                image {
+                  url
+                }
+              }
+              facebookPageUrl
+            }
+          }
           navigation {
+            siteName
+            showSiteName
+            logo {
+              url
+            }
             header {
               ... on PageRecord {
                 text: name
@@ -24,6 +48,20 @@ module.exports = async () => {
                 text
                 url
                 newTab
+              }
+            }
+            footer {
+              name
+              links {
+                ... on PageRecord {
+                  text: name
+                  url
+                }
+                ... on LinkRecord {
+                  text
+                  url
+                  newTab
+                }
               }
             }
           }

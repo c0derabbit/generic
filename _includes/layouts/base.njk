@@ -3,18 +3,23 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title or metadata.title }}</title>
+    <title>
+      {{ title or site.seo.fallbackSeo.title }}
+      {{ site.seo.titleSuffix }}
+    </title>
     <meta name="description" content="{{ description or metadata.description }}">
     <link rel="stylesheet" href="/css/styles.css">
   </head>
   <body>
-    {% include "header.njk" %}
+    <div class="min-h-screen">
+      {% include "header.njk" %}
 
-    <main class="my-6 md:my-16">
-      {{ content | safe }}
-    </main>
+      <main class="my-6 md:my-16">
+        {{ content | safe }}
+      </main>
+    </div>
 
-    <!-- {% include "footer.njk" %} -->
+    {% include "footer.njk" %}
 
     <!-- Fathom - simple website analytics - https://github.com/usefathom/fathom -->
     <script>

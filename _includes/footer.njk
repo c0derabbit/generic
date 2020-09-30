@@ -1,3 +1,27 @@
-<footer>
-  i am the footer
+{% macro footerlink(link) %}
+  <a
+    class="block leading-8"
+    href="{{ link.url }}"
+    {% if link.newTab %}
+      target="_blank"
+      rel="noopener noreferrer"
+    {% endif %}
+  >
+    {{ link.text }}
+  </a>
+{% endmacro %}
+
+<footer class="bg-gray-700 text-white py-8 mt-auto">
+  <div class="container">
+    {% for group in navigation.footer %}
+      <div class="col-span-3">
+        <h4 class="font-semibold mb-6">
+          {{ group.name }}
+        </h4>
+        {% for link in group.links %}
+          {{ footerlink(link) }}
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </div>
 </footer>
