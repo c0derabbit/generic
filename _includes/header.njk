@@ -19,8 +19,8 @@
     </a>
   </h1>
   <nav>
-    {% for link in navigation %}
-      {{ navlink(link.title, link.url) }}
+    {% for link in navigation.header %}
+      {{ navlink(link.text, link.url) }}
     {% endfor %}
   </nav>
   <button class="btn">

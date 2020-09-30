@@ -28,7 +28,9 @@
         <h1 class="text-5xl mb-8 leading-none">{{ data.title }}</h1>
         <p class="text-xl font-light">{{ data.text }}</p>
         <div class="mt-10">
-          {{ link(data.cta) }}
+          {% if data.cta %}
+            {{ link(data.cta) }}
+          {% endif %}
           {% if data.secondaryCta %}
             {{ link(data.secondaryCta, true) }}
           {% endif %}
