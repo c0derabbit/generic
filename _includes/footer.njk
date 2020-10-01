@@ -1,6 +1,6 @@
 {% macro footerlink(link) %}
   <a
-    class="block leading-8"
+    class="block leading-8 opacity-75 hover:opacity-100 transition-color duration-500"
     href="{{ link.url }}"
     {% if link.newTab %}
       target="_blank"

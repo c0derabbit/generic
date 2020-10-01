@@ -103,6 +103,7 @@ module.exports = async () => {
                 image {
                   url
                 }
+                imageAlignment
               }
               ... on FeatureListRecord {
                 _modelApiKey

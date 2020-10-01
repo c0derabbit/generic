@@ -24,8 +24,14 @@
 {% macro hero(data) %}
   <section>
     <div class="container">
-      <div class="col-span-6 md:mt-8">
-        <h1 class="text-5xl mb-8 leading-none">{{ data.title }}</h1>
+      {% if data.imageAlignment === 'left' %}
+        <img class="col-span-6" src="{{ data.image.url }}" />
+      {% endif %}
+
+      <div class="col-span-6 md:mt-16">
+        <h1 class="text-5xl mb-8 leading-none">
+          {{ data.title }}
+        </h1>
         <p class="text-xl font-light">{{ data.text }}</p>
         <div class="mt-10">
           {% if data.cta %}
@@ -37,7 +43,9 @@
         </div>
       </div>
 
-      <img class="col-span-6" src="{{ data.image.url }}" />
+      {% if data.imageAlignment === 'right' %}
+        <img class="col-span-6" src="{{ data.image.url }}" />
+      {% endif %}
     </div>
   </section>
 {% endmacro %}
