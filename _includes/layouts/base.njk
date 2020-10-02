@@ -3,57 +3,20 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-      {{ title or site.seo.fallbackSeo.title }}
-      {{ site.seo.titleSuffix }}
-    </title>
-    <meta name="description" content="{{ description or metadata.description }}">
     <link rel="stylesheet" href="/css/styles.css">
+    {% include "components/seo.njk" %}
   </head>
   <body>
     <div class="min-h-screen">
-      {% include "header.njk" %}
+      {% include "components/header.njk" %}
 
       <main class="my-6">
         {{ content | safe }}
       </main>
     </div>
 
-    {% include "footer.njk" %}
+    {% include "components/footer.njk" %}
 
-    <!-- Fathom - simple website analytics - https://github.com/usefathom/fathom -->
-    <script>
-      (function(f, a, t, h, o, m){
-          a[h]=a[h]||function(){
-              (a[h].q=a[h].q||[]).push(arguments)
-          };
-          o=f.createElement('script'),
-          m=f.getElementsByTagName('script')[0];
-          o.async=1; o.src=t; o.id='fathom-script';
-          m.parentNode.insertBefore(o,m)
-      })(document, window, metadata.fathomBaseUrl, 'fathom');
-      fathom('set', 'siteId', metadata.fathomSiteId);
-      fathom('trackPageview');
-    </script>
-    <!-- / Fathom -->
-    <script
-      src="https://unpkg.com/littlefoot/dist/littlefoot.js"
-      type="application/javascript"
-    ></script>
-    <script type="application/javascript">
-      littlefoot.littlefoot({
-        buttonTemplate: `
-          <button
-            aria-expanded="false"
-            aria-label="Footnote <% number %>"
-            class="littlefoot-footnote__button"
-            id="<% reference %>"
-            title="See Footnote <% number %>"
-          />
-            <% number %>
-          </button>
-        `
-      })
-    </script>
+    {% include "components/scripts.html" %}
   </body>
 </html>

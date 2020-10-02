@@ -1,7 +1,7 @@
 const fetch = require('node-fetch')
 const token = process.env.DATOCMS_TOKEN
 
-const { links } = require('./fragments')
+const { links, seo } = require('./fragments')
 
 module.exports = async () => {
   try {
@@ -19,18 +19,7 @@ module.exports = async () => {
               url
             }
             seo: globalSeo {
-              siteName
-              titleSuffix
-              twitterAccount
-              fallbackSeo {
-                description
-                title
-                twitterCard
-                image {
-                  url
-                }
-              }
-              facebookPageUrl
+              ${seo}
             }
           }
           navigation {
@@ -40,28 +29,12 @@ module.exports = async () => {
               url
             }
             header {
-              ... on PageRecord {
-                text: name
-                url
-              }
-              ... on LinkRecord {
-                text
-                url
-                newTab
-              }
+              ${links}
             }
             footer {
               name
               links {
-                ... on PageRecord {
-                  text: name
-                  url
-                }
-                ... on LinkRecord {
-                  text
-                  url
-                  newTab
-                }
+                ${links}
               }
             }
           }
@@ -79,26 +52,10 @@ module.exports = async () => {
                 title
                 text
                 cta {
-                  ... on PageRecord {
-                    text: name
-                    url
-                  }
-                  ... on LinkRecord {
-                    text
-                    url
-                    newTab
-                  }
+                  ${links}
                 }
                 secondaryCta {
-                  ... on PageRecord {
-                    text: name
-                    url
-                  }
-                  ... on LinkRecord {
-                    text
-                    url
-                    newTab
-                  }
+                  ${links}
                 }
                 image {
                   url
@@ -116,15 +73,7 @@ module.exports = async () => {
                     url
                   }
                   link {
-                    ... on LinkRecord {
-                      text
-                      url
-                      newTab
-                    }
-                    ... on PageRecord {
-                      text: name
-                      url
-                    }
+                    ${links}
                   }
                 }
               }

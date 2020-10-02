@@ -10,6 +10,22 @@ const links = `
   }
 `
 
+const seo = `
+  siteName
+  titleSuffix
+  twitterAccount
+  fallbackSeo {
+    description
+    title
+    twitterCard
+    image {
+      url
+    }
+  }
+  facebookPageUrl
+`
+
 module.exports = {
   links,
+  seo,
 }
