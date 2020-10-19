@@ -1,6 +1,23 @@
+{% set title = title or site.seo.fallbackSeo.title %}
+{% set description = description or site.seo.fallbackSeo.description %}
+{% set imageUrl = seoImage or site.seo.fallbackSeo.image.url %}
+
 <title>
-  {{ title or site.seo.fallbackSeo.title }}
+  {{ title }}
   {{ site.seo.titleSuffix }}
 </title>
 
-<meta name="description" content="{{ description or metadata.description }}">
+<meta name="description" content="{{ description }}">
+
+<meta property="og:site_name" content="{{ site.seo.siteName }}">
+<meta property="og:title" content="{{ title }}{{ site.seo.titleSuffix }}">
+<meta property="og:description" content="{{ description }}">
+<meta property="og:type" content="website">
+<meta property="og:image" content="{{ imageUrl }}">
+
+<meta name="twitter:card" content="{{ site.seo.fallbackSeo.twitterCard }}">
+<meta name="twitter:creator" content="{{ site.seo.fallbackSeo.twitterAccount }}">
+<meta name="twitter:title" content="{{ title }}{{ site.seo.titleSuffix }}">
+<meta name="twitter:text:title" content="{{ title }}{{ site.seo.titleSuffix }}">
+<meta name="twitter:description" content="{{ description }}">
+<meta name="twitter:image" content="{{ imageUrl }}">
