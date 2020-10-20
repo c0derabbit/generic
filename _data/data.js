@@ -50,6 +50,7 @@ module.exports = async () => {
               ... on HeroRecord {
                 _modelApiKey
                 title
+                smallHeading
                 text
                 cta {
                   ${links}
