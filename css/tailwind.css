@@ -13,6 +13,10 @@ body {
   @apply grid grid-cols-4 p-4 mx-auto max-w-6xl gap-4;
 }
 
+.invert > * {
+  filter: invert();
+}
+
 @media (min-width: 768px) {
   .container {
     @apply grid-cols-8 gap-6 py-8;

@@ -78,6 +78,16 @@ module.exports = async () => {
                   }
                 }
               }
+              ... on LogoSectionRecord {
+                _modelApiKey
+                title
+                subtitle
+                logos {
+                  url
+                  alt
+                }
+                invert
+              }
             }
           }
         }`,

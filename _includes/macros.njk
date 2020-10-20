@@ -21,6 +21,17 @@
   >
 {% endmacro %}
 
+{% macro sectionHeading(title, subtitle) %}
+  <div class="col-span-12 text-center">
+    <h2 class="text-3xl">
+      {{ title }}
+    </h2>
+    <h3 class="text-2xl font-light">
+      {{ subtitle }}
+    </h3>
+  </div>
+{% endmacro %}
+
 {% macro hero(data) %}
   <section>
     <div class="container">
@@ -56,14 +67,7 @@
 {% macro feature_list(data) %}
   <section class="bg-gray-100">
     <div class="container py-6 md:py-12 lg:py-24">
-      <div class="col-span-12 text-center">
-        <h2 class="text-3xl">
-          {{ data.title }}
-        </h2>
-        <h3 class="text-2xl font-light">
-          {{ data.subtitle }}
-        </h3>
-      </div>
+      {{ sectionHeading(data.title, data.subtitle) }}
       {% for feature in data.features %}
         <div class="col-span-12 md:col-span-4 lg:col-span-{% if data.features.length % 3 == 0 %}4{% else %}6{% endif %}">
           {% if feature.link %} {{ linkOpeningTag(feature.link) }} {% endif %}
@@ -77,6 +81,19 @@
           {% if feature.link %} </a> {% endif %}
         </div>
       {% endfor %}
+    </div>
+  </section>
+{% endmacro %}
+
+{% macro logo_section(data) %}
+  <section{% if data.invert %} class="bg-gray-900 invert"{% endif %}>
+    <div class="container py-6 md:py-12 lg:py-24">
+      {{ sectionHeading(data.title, data.subtitle) }}
+      <div class="col-span-12 grid gap-4 sm:gap-2 md:gap-6 lg:gap-16 grid-cols-3 sm:grid-cols-6">
+        {% for logo in data.logos %}
+          <img src="{{ logo.url }}" alt="{{ logo.alt }}" class="px-8" />
+        {% endfor %}
+      </div>
     </div>
   </section>
 {% endmacro %}
